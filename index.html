@@ -1,1 +1,325 @@
-<h1>Miau aaa</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Barra de Botones</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6a11cb;
+            --secondary-color: #2575fc;
+            --text-color: #333;
+            --bg-color: #f0f2f5;
+            --card-bg: #fff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Estilos del encabezado principal --- */
+        .hero {
+            height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/1600x900/?mountain,forest') no-repeat center center/cover;
+            position: relative;
+            overflow: hidden;
+            padding-top: 50px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.2;
+            animation: moveDots 20s linear infinite;
+        }
+
+        @keyframes moveDots {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: 100% 100%;
+            }
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+        }
+
+        /* --- Barra de botones --- */
+        .button-bar {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px 25px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .button-bar a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 50px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .button-bar a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .button-bar a.active {
+            background: #fff;
+            color: var(--primary-color);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* --- Secciones de contenido --- */
+        .content-section {
+            padding: 60px 0;
+            text-align: center;
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .content-section:nth-of-type(odd) {
+            background-color: var(--bg-color);
+        }
+
+        .content-section:nth-of-type(even) {
+            background-color: #e5e5e5;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .content-section p {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* --- Estilos de la tabla --- */
+        .content-table {
+            width: 100%;
+            max-width: 800px;
+            margin: 40px auto;
+            border-collapse: collapse;
+            box-shadow: var(--shadow);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .content-table td {
+            padding: 20px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+            background-color: var(--card-bg);
+            text-align: left;
+        }
+
+        .content-table img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 5px;
+        }
+
+        .content-table p {
+            text-align: left;
+            margin: 0;
+        }
+        
+        .pdf-link {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .pdf-link:hover {
+            color: var(--secondary-color);
+        }
+
+        /* --- Pie de página --- */
+        .footer {
+            background-color: var(--text-color);
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <section class="hero">
+            <h1 class="hero-title">Laia's Individual Digital Portfolio</h1>
+            <div class="button-bar">
+                <a href="#home-page" class="active">Home Page</a>
+                <a href="#entry-1">Entry 1</a>
+                <a href="#entry-2">Entry 2</a>
+                <a href="#entry-3">Entry 3</a>
+                <a href="#entry-4">Entry 4</a>
+                <a href="#entry-5">Entry 5</a>
+            </div>
+        </section>
+
+        <section id="home-page" class="content-section active">
+            <div class="container">
+                <h2>Welcome to Laia's Individual Digital Portfolio</h2>
+            </div>
+        </section>
+
+        <section id="entry-1" class="content-section">
+            <div class="container">
+                <h2>Entry 1: TPACK Self-Assessment</h2>
+                <table class="content-table">
+                    <tr>
+                        <td>
+                            <h3>Technological Pedagogical Content Knowledge (TPACK)</h3>
+                            <p>TPACK is a framework that identifies the knowledge teachers need to teach effectively with technology. It's an intersection of three primary forms of knowledge: Content, Pedagogy, and Technology.</p>
+                        </td>
+                        <td>
+                            <img src="https://source.unsplash.com/400x300/?technology,learning" alt="Imagen de tecnología y aprendizaje">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="https://source.unsplash.com/400x300/?education,teacher" alt="Imagen de educación y enseñanza">
+                        </td>
+                        <td>
+                            <h3>My Self-Assessment</h3>
+                            <p>In this section, I will reflect on my personal strengths and weaknesses in each of the three TPACK domains: Technological Knowledge, Pedagogical Knowledge, and Content Knowledge.</p>
+                        </td>
+                    </tr>
+                </table>
+                <p>
+                    <a href="ResponseSummary-Laia Muset Domínguez.pdf" target="_blank" class="pdf-link">Link to the PDF: ResponseSummary-Laia Muset Domínguez.pdf </a>
+                </p>
+            </div>
+        </section>
+
+        <section id="entry-2" class="content-section">
+            <div class="container">
+                <h2>Sección de Entry 2</h2>
+                <p>Contenido de la segunda entrada. Personaliza esta sección con la información que necesites.</p>
+            </div>
+        </section>
+
+        <section id="entry-3" class="content-section">
+            <div class="container">
+                <h2>Sección de Entry 3</h2>
+                <p>Contenido de la tercera entrada. Un sitio web bien organizado hace que la navegación sea mucho más fácil.</p>
+            </div>
+        </section>
+
+        <section id="entry-4" class="content-section">
+            <div class="container">
+                <h2>Sección de Entry 4</h2>
+                <p>Contenido de la cuarta entrada. Recuerda que los estilos son totalmente personalizables.</p>
+            </div>
+        </section>
+
+        <section id="entry-5" class="content-section">
+            <div class="container">
+                <h2>Sección de Entry 5</h2>
+                <p>Contenido de la quinta y última entrada. ¡Ahora tienes una página con un diseño genial!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Mi Página. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttonBar = document.querySelector('.button-bar');
+            const sections = document.querySelectorAll('.content-section');
+            const navLinks = document.querySelectorAll('.button-bar a');
+
+            buttonBar.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = e.target.getAttribute('href');
+
+                if (targetId) {
+                    sections.forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                        e.target.classList.add('active');
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
