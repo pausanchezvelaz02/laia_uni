@@ -7,12 +7,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
-
+    
     <style>
         :root {
-            --primary-color: #2aa152;
-            --secondary-color: #4bc5a5;
+            --primary-color: #894eb6;
+            --secondary-color: #606fc8;
             --text-color: #333;
             --bg-color: #f0f2f5;
             --card-bg: #fff;
@@ -47,8 +46,7 @@
             align-items: center;
             text-align: center;
             color: #fff;
-            /* Aquí se ha cambiado el fondo */
-            background-image: url('escritorio-ordenado-con-laptop-y-espacio-de-copia.jpg'); /* ¡CAMBIA ESTO POR LA RUTA DE TU IMAGEN! */
+            background-image: url('fondo.jpg'); 
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -56,7 +54,6 @@
             overflow: hidden;
             padding-top: 50px;
         }
-        /* Se ha eliminado .hero::before y @keyframes moveDots */
 
         .hero-title {
             font-size: clamp(2rem, 5vw, 4rem);
@@ -134,10 +131,82 @@
             margin-bottom: 20px;
             color: var(--primary-color);
         }
-
+        
+        /* Justifica el texto de los párrafos */
         .content-section p {
             max-width: 800px;
             margin: 0 auto;
+            text-align: justify; /* Nuevo estilo para justificar el texto */
+        }
+        
+        /* --- Estilos para la sección de video --- */
+        .video-section-content {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .video-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 640px;
+            width: 100%;
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .video-wrapper h4 {
+            margin-top: 15px;
+            font-weight: 600;
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        .video-info-box {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 400px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .video-info-box h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .video-info-box p {
+            max-width: 100%;
+            font-size: 1rem;
+            margin-top: 0;
+            text-align: justify; /* Justificar el texto dentro de la caja de información */
+        }
+
+        /* --- Media query para adaptar el diseño --- */
+        @media (max-width: 900px) {
+            .video-section-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .video-info-box,
+            .video-wrapper {
+                max-width: 100%;
+            }
         }
 
         /* --- Estilos de la tabla --- */
@@ -178,6 +247,7 @@
             color: var(--primary-color);
             text-decoration: none;
             transition: color 0.3s ease;
+            display: inline-block;
         }
 
         .pdf-link:hover {
@@ -194,11 +264,8 @@
         }
 
         .espaciado {
-            white-space: pre; /* respeta espacios y saltos de línea */
+            white-space: pre;
         }
-
-
-
     </style>
 </head>
 <body>
@@ -209,42 +276,43 @@
             <div class="button-bar">
                 <a href="#home-page" class="active">Home Page</a>
                 <a href="#entry-1">Entry 1</a>
-
             </div>
         </section>
 
         <section id="home-page" class="content-section active">
             <div class="container">
                 <h2>Welcome to Laia's Individual Digital Portfolio</h2>
+                <div class="video-section-content">
+                    <div class="video-wrapper">
+                        <video width="640" height="360" controls>
+                            <source src="1.mp4" type="video/mp4">
+                        </video>
+                        <h4>Video 1. Welcome video.</h4>
+                    </div>
+                    <div class="video-info-box">
+                        <h3>About the video</h3>
+                        <p>Hi! Here I tell you a bit about this page and what you will find on it.<br></br>Hit play to learn more!</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="entry-1" class="content-section">
             <div class="container">
                 <h2>Entry 1: TPACK Self-Assessment</h2>
-                <table class="content-table">
-                    <tr>
-                        <td>
-                            <h3>Technological Pedagogical Content Knowledge (TPACK)</h3>
-                            <p>TPACK is a framework that identifies the knowledge teachers need to teach effectively with technology. It's an intersection of three primary forms of knowledge: Content, Pedagogy, and Technology.</p>
-                        </td>
-                        <td>
-                            <img src="https://source.unsplash.com/400x300/?technology,learning" alt="Imagen de tecnología y aprendizaje">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <img src="https://source.unsplash.com/400x300/?education,teacher" alt="Imagen de educación y enseñanza">
-                        </td>
-                        <td>
-                            <h3>My Self-Assessment</h3>
-                            <p>In this section, I will reflect on my personal strengths and weaknesses in each of the three TPACK domains: Technological Knowledge, Pedagogical Knowledge, and Content Knowledge.</p>
-                        </td>
-                    </tr>
-                </table>
-                <p>
-                    <a href="ResponseSummary-Laia Muset Domínguez.pdf" target="_blank" class="pdf-link">Link to the PDF: ResponseSummary-Laia Muset Domínguez.pdf </a>
-                </p>
+                <div class="video-section-content">
+                    <div class="video-wrapper">
+                        <video width="640" height="360" controls>
+                            <source src="2.mp4" type="video/mp4">
+                        </video>
+                        <h4>Video 2. TPACK Self-Assessment.</h4>
+                    </div>
+                    <div class="video-info-box">
+                        <h3>About the video</h3>
+                        <p>In this video, I share my reflection on the TPACK Self-Assessment results, discussing where I position myself as a teacher using advanced technologies to support language learning; what I think I need to learn and how I can do it; and how I feel about using these technologies to support language learning.</p>
+                        <a href="ResponseSummary-Laia Muset Domínguez.pdf" target="_blank" class="pdf-link">Link to the PDF: ResponseSummary-Laia Muset Domínguez.pdf </a>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -279,7 +347,7 @@
 
     <footer class="footer">
         <div class="container">
-            <h4 class="espaciado">Laia Muset Domínguez               Universitat Autònoma de Barcelona               Technology Infused Language Teaching</h4>
+            <h4 class="espaciado">Laia Muset Domínguez     Universitat Autònoma de Barcelona     Technology Infused Language Teaching</h4>
         </div>
     </footer>
 
@@ -309,6 +377,5 @@
             });
         });
     </script>
-
 </body>
 </html>
