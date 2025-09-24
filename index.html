@@ -136,10 +136,10 @@
         .content-section p {
             max-width: 800px;
             margin: 0 auto;
-            text-align: justify; /* Nuevo estilo para justificar el texto */
+            text-align: justify;
         }
         
-        /* --- Estilos para la sección de video --- */
+        /* --- Estilos para la sección de video y iframe --- */
         .video-section-content {
             display: flex;
             justify-content: center;
@@ -156,10 +156,11 @@
             max-width: 640px;
             width: 100%;
         }
-
-        .video-wrapper video {
+        
+        .video-wrapper iframe {
             width: 100%;
-            height: auto;
+            height: 360px;
+            border: none;
             border-radius: 10px;
             box-shadow: var(--shadow);
         }
@@ -181,7 +182,6 @@
             text-align: left;
             display: flex;
             flex-direction: column;
-            justify-content: center;
         }
         
         .video-info-box h3 {
@@ -194,7 +194,7 @@
             max-width: 100%;
             font-size: 1rem;
             margin-top: 0;
-            text-align: justify; /* Justificar el texto dentro de la caja de información */
+            text-align: justify;
         }
 
         /* --- Media query para adaptar el diseño --- */
@@ -284,9 +284,7 @@
                 <h2>Welcome to Laia's Individual Digital Portfolio</h2>
                 <div class="video-section-content">
                     <div class="video-wrapper">
-                        <video width="640" height="360" controls>
-                            <source src="1.mp4" type="video/mp4">
-                        </video>
+                        <iframe src="https://drive.google.com/file/d/1LPl9xjW36gdiwf1FfPiDCG4m3iiUQreX/preview" width="640" height="480" allow="autoplay"></iframe>
                         <h4>Video 1. Welcome video.</h4>
                     </div>
                     <div class="video-info-box">
@@ -302,9 +300,7 @@
                 <h2>Entry 1: TPACK Self-Assessment</h2>
                 <div class="video-section-content">
                     <div class="video-wrapper">
-                        <video width="640" height="360" controls>
-                            <source src="2.mp4" type="video/mp4">
-                        </video>
+                        <iframe src="https://drive.google.com/file/d/1ZO31KKcnoQf078tFvQwrV37d5cRFGYFn/preview" width="640" height="480" allow="autoplay"></iframe>
                         <h4>Video 2. TPACK Self-Assessment.</h4>
                     </div>
                     <div class="video-info-box">
