@@ -137,9 +137,10 @@
             max-width: 800px;
             margin: 0 auto;
             text-align: justify;
+            white-space: pre-wrap; 
         }
         
-        /* --- Estilos para la sección de video y iframe --- */
+        /* --- Estilos para la sección de video y iframe (Homepage/Entry 1) --- */
         .video-section-content {
             display: flex;
             justify-content: center;
@@ -209,36 +210,158 @@
             }
         }
 
-        /* --- Estilos de la tabla --- */
-        .content-table {
-            width: 100%;
-            max-width: 3100px;
-            margin: 40px auto;
-            border-collapse: collapse;
+        /* --- Estilos para recuadro de texto centrado (Entry 2) --- */
+        .text-info-box-centered {
+            background-color: var(--card-bg); /* Fondo blanco */
+            padding: 30px;
+            border-radius: 10px;
             box-shadow: var(--shadow);
+            width: 100%;
+            max-width: 1200px; /* Suficientemente ancho para el texto */
+            margin: 40px auto; /* Centra el bloque horizontalmente y le da espacio */
+            text-align: left; /* Alinea el texto dentro del recuadro a la izquierda */
+        }
+        
+        /* AUMENTO DE FUENTE PARA H3 DENTRO DEL RECUADRO CENTRADO */
+        .text-info-box-centered h3 {
+            font-size: 1.75rem; 
+            color: black; 
+            margin-top: 0; 
+            margin-bottom: 15px; 
+        }
+
+        /* Sobrescribe la alineación de texto para los párrafos dentro de este recuadro */
+        .text-info-box-centered p {
+            max-width: 100%; /* Permite que el párrafo use todo el ancho del recuadro */
+            margin: 10px 0;
+            text-align: justify; /* Mantiene la justificación */
+        }
+        /* --- FIN Estilos para recuadro de texto centrado --- */
+
+        /* --- Estilos para la imagen de Entry 2 (Individuales) --- */
+        #entry-2 .image-container-entry2 {
+            display: flex;
+            justify-content: center;
+            margin: 40px auto; 
+            max-width: 500px; 
+            width: 90%; 
             border-radius: 10px;
             overflow: hidden;
+            box-shadow: var(--shadow);
         }
 
-        .content-table td {
-            padding: 20px;
-            border: 1px solid #ddd;
-            vertical-align: top;
-            background-color: var(--card-bg);
-            text-align: left;
+        #entry-2 .image-container-entry2-large {
+            display: flex;
+            justify-content: center;
+            margin: 40px auto; 
+            max-width: 650px; 
+            width: 90%; 
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
         }
 
-        .content-table img {
-            max-width: 100%;
+        #entry-2 .image-container-entry2 img,
+        #entry-2 .image-container-entry2-large img {
+            width: 100%; 
             height: auto;
             display: block;
-            border-radius: 5px;
-        }
-
-        .content-table p {
-            text-align: left;
             margin: 0;
         }
+        /* --- FIN Estilos para la imagen de Entry 2 (Individuales) --- */
+
+        /* --- Contenedor Flexbox para imagen y audio lado a lado (My reflective song) --- */
+        .media-flex-container {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 30px; 
+            max-width: 900px; 
+            margin: 40px auto; 
+            padding: 20px;
+            background-color: var(--card-bg); 
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .media-flex-container .image-left {
+            flex: 1 1 300px; 
+            max-width: 400px; 
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .media-flex-container .image-left img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .media-flex-container .audio-right {
+            flex: 1 1 300px; 
+            max-width: 400px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+        }
+
+        .media-flex-container .audio-right iframe {
+            display: block;
+            width: 100%;
+            height: 52px; 
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        }
+
+        .media-flex-container .audio-right h4 {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-color);
+            margin-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .media-flex-container {
+                flex-direction: column; 
+                padding: 15px;
+            }
+            .media-flex-container .image-left,
+            .media-flex-container .audio-right {
+                max-width: 100%; 
+            }
+        }
+        /* --- FIN Contenedor Flexbox para imagen y audio --- */
+
+        /* --- Estilos para la CUADRÍCULA (Pie de Entry 2) --- */
+        .image-grid-row {
+            display: flex;
+            justify-content: center; 
+            gap: 30px; 
+            max-width: 1200px; 
+            margin: 40px auto; 
+        }
+
+        .image-grid-row .img-column-2 {
+            width: calc(50% - 15px); 
+            max-width: 585px; 
+        }
+
+        .image-grid-row .img-column-1 {
+            width: 100%;
+            max-width: 650px; 
+        }
+
+        .image-grid-row img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 10px; 
+            box-shadow: var(--shadow);
+        }
+        /* --- FIN Estilos para la CUADRÍCULA --- */
         
         .pdf-link {
             margin-top: 20px;
@@ -276,6 +399,7 @@
             <div class="button-bar">
                 <a href="#home-page" class="active">Home Page</a>
                 <a href="#entry-1">Entry 1</a>
+                <a href="#entry-2">Entry 2</a>
             </div>
         </section>
 
@@ -314,9 +438,116 @@
 
         <section id="entry-2" class="content-section">
             <div class="container">
-                <h2>Sección de Entry 2</h2>
-                <p>Contenido de la segunda entrada. Personaliza esta sección con la información que necesites.</p>
-            </div>
+                <h2>Entry 2: AI block reflection</h2>
+                
+                <div class="text-info-box-centered">
+                    <h3>Context</h3>
+                    <p>For this block, our group designed a language teaching activity that combined AI tools, <a href="https://copilot.microsoft.com/" target="_blank">Copilot</a> and <a href="https://app.suno.ai/" target="_blank">Suno</a>, to promote creativity, vocabulary learning, and collaboration. The activity follows a structured sequence that integrates language production with technology in a meaningful way.
+
+First, students work in pairs to do a worksheet and to play a game related to Halloween words. Then, they are assigned three Halloween-related words (a noun, a verb, and an adjective) and they have to write a short verse of a song using them and Copilot. After that, they join another pair with the same words to combine their verses and create a longer one that becomes part of the class Halloween song. Afterwards, the class uses Copilot to turn this verses into song lyrics and Suno to create the song with the voice and the instruments. Later, each group produces a version of their paragraph with missing words to be used in a listening activity using the generated song, allowing them to assess their understanding of the content.
+
+Following that, students review the song and practise performing it. Then, they design scaffolding materials to present and sing the song to the kindergarten children of the school. Finally, the project concludes with an individual self-assessment, where each student reflects on their learning, participation, and use of technology throughout the process.</p>
+                </div>
+
+                <div class="text-info-box-centered">
+                    <h3>Critical reflection</h3>
+                    <p>This project was an enriching experience because it showed how AI can be integrated into language teaching in creative yet structured ways. One of the main challenges was designing an activity that balanced <strong>linguistic objectives with the use of AI tools</strong>. We needed to make sure students were not only playing with technology, but actually using it to learn and communicate meaningfully in English.
+
+On the one hand, several aspects of the plan <strong>worked particularly well</strong>. First, the <strong>progressive structure</strong> of the activity allowed for a smooth integration of language learning and AI use. Starting with a vocabulary-based worksheet and game created a <strong>meaningful context</strong> for introducing Halloween-related words, while the prompt creation with Copilot encouraged guided <strong>creativity and vocabulary practise</strong>. Then, the collaborative step, where pairs joined others with the same words to merge their verses, added a cooperative dimension that promoted <strong>peer learning and co-construction of meaning</strong>.
+
+Furthermore, the decision to use Copilot for generating verses and Suno for composing the final song gave the project a clear and motivating technological <strong>purpose</strong>. Moreover, these tools not only supported creativity but also demonstrated how <strong>AI can be meaningfully used to produce authentic and engaging language content</strong>. In addition, the inclusion of a listening comprehension activity and the final stage of designing materials for kindergarten learners showed how the activity <strong>connected production, comprehension, and application</strong> in a coherent way. 
+
+On the other hand, we also identified some <strong>limitations</strong> during the planning process. One issue was ensuring that all students would <strong>contribute equally</strong> to the prompt writing stage, as some learners prefer to let others do all the work, and others do not let students participate. Another potential difficulty was managing the technological side, making sure every student had <strong>access to their account</strong>, and the <strong>internet connection remained stable</strong>. Additionally, we realized that without guidance, students might produce <strong>only minimal or disconnected verses</strong>.
+
+According to the feedback from our teacher, we introduced several key changes that made the activity clearer and more effective. First, we decided that the <strong>teacher would create individual accounts</strong> for each pair on Copilot and Suno before the class, ensuring smoother access and saving time.</p>
+                </div>
+
+                <div class="image-container-entry2">
+                    <img src="IMG_1886.jpg" alt="Description of Image 1">
+                </div>
+
+                <div class="text-info-box-centered">
+                    <p>We also adjusted the structure so that students <strong>first worked in pairs and later joined another pair with the same words</strong>, promoting richer collaboration and allowing them to co-create longer verses together.</p>
+                </div>
+
+                <div class="image-container-entry2-large">
+                    <img src="IMG_1888.jpg" alt="Description of Image 2 (Larger)">
+                </div>
+
+                <div class="text-info-box-centered">
+                    <p>Another major change was <strong>improving the prompt guide</strong>. To make sure students <strong>didn’t write only one sentence</strong>, we added the step to make them write an example sentence using the assigned words (a noun, verb, and adjective) before generating their verse with Copilot.</p>
+                </div>
+
+                <div class="image-container-entry2-large">
+                    <img src="IMG_1892.jpg" alt="Description of Image 2 (Larger)">
+                </div>
+
+                <div class="text-info-box-centered">
+                    <p>Moreover, we also modified the fact that each pair had to create a different song and that the whole class had to select the best one, because it was too complex. Now, <strong>each pair had to create one verse, and, with another pair, a final one. Finally, they would have to combine all the verses into a single song</strong>.</p>
+                </div>
+
+                <div class="image-container-entry2-large">
+                    <img src="IMG_1894.jpg" alt="Description of Image 2 (Larger)">
+                </div> 
+
+                <div class="text-info-box-centered">
+                    <p>Furthermore, we also implemented a new task where students <strong>created a fill-in-the-gaps worksheet</strong> for their verse and then used it in a <strong>listening activity</strong> with the generated song. This not only helped them assess their comprehension but also positioned them as <strong>teachers of their own content</strong>.</p>
+                </div>
+
+                <div class="image-container-entry2-large">
+                    <img src="IMG_1895.jpg" alt="Description of Image 2 (Larger)">
+                </div> 
+
+                <div class="text-info-box-centered">
+                    <p>Based on the feedback from our <strong>classmates</strong>, we refined the activity even further. We added a <strong>teacher’s demonstration song before starting</strong>, so students could see a complete example of the process. Moreover, we included <strong>clearer instructions on how to use Copilot</strong>, <strong>planned vocabulary support</strong> for unknown words, and defined <strong>specific roles for each group member</strong> during the stage of creating the prompt to ensure equal participation. Finally, we designed a <strong>Plan B</strong> in case of internet connection problems.</p>
+                </div>
+                
+                <div class="image-grid-row">
+                    <div class="img-column-2"><img src="IMG_1896.jpg" alt="Image 1"></div>
+                    <div class="img-column-2"><img src="IMG_1889.jpg" alt="Image 2"></div>
+                </div>
+                <div class="image-grid-row">
+                    <div class="img-column-2"><img src="IMG_1890.jpg" alt="Image 3"></div>
+                    <div class="img-column-2"><img src="IMG_1891.jpg" alt="Image 4"></div>
+                </div>
+                <div class="image-grid-row">
+                    <div class="img-column-2"><img src="IMG_1897.jpg" alt="Image 3"></div>
+                    <div class="img-column-2"><img src="IMG_1898.jpg" alt="Image 4"></div>
+                </div>
+                <div class="image-grid-row">
+                    <div class="img-column-1"><img src="IMG_1899.jpg" alt="Image 5 (Centered)"></div>
+                </div>
+
+                <div class="text-info-box-centered">
+                    <h3>Link to TPACK Competences</h3>
+                    <p>This project helped me reinforce several areas of my TPACK competences. Before this activity, I felt more confident with basic tools like Google Docs or Canva, but now <strong>I can see how AI can be integrated meaningfully into language learning tasks</strong>. I learned how to design an activity where technology supports not just motivation, but also linguistic and communicative goals.
+
+Moreover, working with AI made me reflect on the <strong>ethical and pedagogical responsibilities of teachers when introducing these tools in class</strong>. I gained a <strong>deeper understanding of both the potential and limitations of AI in education</strong>, because while it can inspire creativity and engagement, it sometimes generates inaccurate or biased outputs. This reminded me that as a future teacher, I must guide students to use AI critically, questioning, contrasting, and verifying information rather than accepting it uncritically. So, it is not only about knowing how to use technology, but also about <strong>guiding students to understand its limits, question its outputs, and use it as a support</strong> for their own learning rather than a shortcut.
+
+Through this experience, I developed a better understanding of how to adapt technology to different learning contexts, anticipate technical challenges, and scaffold tasks so that technology truly enhances learning. This aligns with my goal of becoming more confident and critical in using advanced digital tools in my future teaching practice.</p>
+                </div>
+
+                <div class="text-info-box-centered">
+                    <h3>My reflective song</h3>
+                    <p>To conclude my reflection, I decided to use what I explained and create a song using Copilot to generate the lyrics and Suno to add the voice and instrumentation. I chose this format because it represents the core idea of our project, that is integrating technology, creativity, and learning in meaningful ways.</p>
+                </div>
+
+                <div class="media-flex-container">
+                    <div class="image-left">
+                        <img src="AI in the classroom.png" alt="Reflective Song Image">
+                    </div>
+                    <div class="audio-right">
+                        <iframe 
+                            src="https://drive.google.com/file/d/1GaQKJElDttaHARzGyhFN4m0j24ZHBdU4/preview" 
+                            width="100%" 
+                            height="50" 
+                            allow="autoplay"
+                            frameborder="0"
+                        ></iframe>
+
+                    </div>
+                </div>
+                </div>
         </section>
 
         <section id="entry-3" class="content-section">
@@ -343,7 +574,7 @@
 
     <footer class="footer">
         <div class="container">
-            <h4 class="espaciado">Laia Muset Domínguez     Universitat Autònoma de Barcelona     Technology Infused Language Teaching</h4>
+            <h4 class="espaciado">Laia Muset Domínguez     Universitat Autònoma de Barcelona     Technology Infused Language Teaching</h4>
         </div>
     </footer>
 
