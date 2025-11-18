@@ -208,7 +208,31 @@
             .video-wrapper {
                 max-width: 100%;
             }
+            /* Resetear tamaño de video grande en móviles */
+            #entry-3 .video-wrapper {
+                max-width: 100%;
+            }
+            #entry-3 .video-wrapper iframe {
+                height: 56.25vw; /* Mantiene la proporción 16:9 en móvil */
+                max-height: 400px;
+            }
         }
+
+        /* **************************************************** */
+        /* --- ESTILO PARA HACER EL VIDEO DE ENTRY 3 GRANDE --- */
+        /* **************************************************** */
+        #entry-3 .video-section-content .video-wrapper {
+            max-width: 900px; /* Nuevo ancho máximo */
+            margin: 0 auto;
+        }
+
+        #entry-3 .video-section-content .video-wrapper iframe {
+            height: 506px; /* Altura para mantener la proporción 16:9 con 900px de ancho */
+            max-width: 900px; 
+        }
+        /* **************************************************** */
+        /* **************************************************** */
+
 
         /* --- Estilos para recuadro de texto centrado (Entry 2) --- */
         .text-info-box-centered {
@@ -230,7 +254,7 @@
             margin-bottom: 15px; 
         }
 
-        /* Sobrescribe la alineación de texto para los párrafos dentro de este recuadro */
+        /* Sobrescrive la alineación de texto para los párrafos dentro de este recuadro */
         .text-info-box-centered p {
             max-width: 100%; /* Permite que el párrafo use todo el ancho del recuadro */
             margin: 10px 0;
@@ -239,7 +263,7 @@
         /* --- FIN Estilos para recuadro de texto centrado --- */
 
         /* --- Estilos para la imagen de Entry 2 (Individuales) --- */
-        #entry-2 .image-container-entry2 {
+        .image-container-entry2 {
             display: flex;
             justify-content: center;
             margin: 40px auto; 
@@ -262,7 +286,8 @@
         }
 
         #entry-2 .image-container-entry2 img,
-        #entry-2 .image-container-entry2-large img {
+        #entry-2 .image-container-entry2-large img,
+        .image-container-entry2 img { 
             width: 100%; 
             height: auto;
             display: block;
@@ -323,18 +348,6 @@
             margin-top: 10px;
         }
         
-        @media (max-width: 768px) {
-            .media-flex-container {
-                flex-direction: column; 
-                padding: 15px;
-            }
-            .media-flex-container .image-left,
-            .media-flex-container .audio-right {
-                max-width: 100%; 
-            }
-        }
-        /* --- FIN Contenedor Flexbox para imagen y audio --- */
-
         /* --- Estilos para la CUADRÍCULA (Pie de Entry 2) --- */
         .image-grid-row {
             display: flex;
@@ -386,8 +399,26 @@
             margin-top: 60px;
         }
 
+        /* SOLUCIÓN AL PROBLEMA DE ESPACIADO: Uso de flexbox en lugar de white-space: pre; */
         .espaciado {
-            white-space: pre;
+            display: flex; 
+            justify-content: space-around; 
+            text-align: center;
+            font-size: 0.85rem;
+            flex-wrap: wrap; 
+            gap: 10px; 
+        }
+        
+        /* Estilos para los spans dentro del footer */
+        .espaciado span {
+            padding: 0 5px;
+        }
+        
+        @media (max-width: 600px) {
+            .espaciado {
+                justify-content: center;
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -400,10 +431,11 @@
                 <a href="#home-page" class="active">Home Page</a>
                 <a href="#entry-1">Entry 1</a>
                 <a href="#entry-2">Entry 2</a>
+                <a href="#entry-3">Entry 3</a> 
             </div>
         </section>
 
-        <section id="home-page" class="content-section active">
+        <section id="home-page" class="content-section">
             <div class="container">
                 <h2>Welcome to Laia's Individual Digital Portfolio</h2>
                 <div class="video-section-content">
@@ -552,8 +584,93 @@ Through this experience, I developed a better understanding of how to adapt tech
 
         <section id="entry-3" class="content-section">
             <div class="container">
-                <h2>Sección de Entry 3</h2>
-                <p>Contenido de la tercera entrada. Un sitio web bien organizado hace que la navegación sea mucho más fácil.</p>
+                <h2>Entry 3: 360 block reflection</h2>
+                <div class="text-info-box-centered">
+                    <p>To present my reflection in a visual, structured, and thematic way, <strong>I created a <a href="https://thinglink.com/" target="_blank">ThingLink</a></strong> that organizes the different parts of my analysis. However, since my account will be permanently deleted in 30 days and the ThingLink will disappear with it, what I present here is a video in which I walk through the interactive map and show how it is organized. The ThingLink maintains the space-themed atmosphere of the original activity, turning the reflection into <strong>a journey through space where each stop reveals a different aspect of my learning process.</strong></p>
+                </div>
+
+                <div class="video-section-content">
+                    <div class="video-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1w4g3PhrHOaDuxru5Brd6pCIm9z5Hzrqh/preview" width="640" height="480" allow="autoplay"></iframe>
+                    </div>
+                </div>
+                
+                <div class="text-info-box-centered">
+                    <p>The following written reflection expands on the ideas presented in the interactive map, offering a deeper and more detailed analysis of the project. It examines the evolution of the initial concept, the elements that contributed to the activity’s success, the limitations identified during implementation, and the improvements that would enhance future versions. It also considers the development of my TPACK competences throughout this process.</p>
+                </div>
+                <div class="text-info-box-centered">
+                    <h3>Context</h3>
+                    <p>For this project, we designed a technology and language learning activity using <strong>Thinglink 360° images.</strong> The activity, titled “Searching for a new planet,” was created for <strong>sixth-grade learners (A2 CEFR level)</strong> and aimed to integrate <strong>language skills</strong> (listening, speaking, reading, and writing) within a highly visual and interactive environment.
+
+The main goal of the task was to engage students in a <strong>space exploration mission</strong>, where they acted as astronauts searching for a new planet for humans to live on. Each group had to explore a 360° image of a different fictional planet, gathering information about its living conditions. Then, they had to create both a <strong>written report and an audio recording</strong> summarizing their findings, which they later had to give with another group, so they could have more information. Finally, in a class discussion, students compared the different planets and collectively decided which one was most suitable for human life.
+
+The design followed a pre-task, main task, and post-task phases. During the <strong>pre-task</strong>, students were introduced to the problem (Earth becoming uninhabitable) through a short news text and created a visual glossary of key vocabulary. In the <strong>main task</strong>, they explored their assigned planet through the Thinglink 360° image, which contained clues and information. Moreover, scaffolding materials (e.g., report models, checklists, and sentence starters) guided them through the process. In the <strong>post-task</strong> phase, the whole class shared and discussed their findings, using comparison structures to reach a final decision.
+
+This project was designed not only to develop students’ linguistic competences, particularly descriptive and comparative language, but also to foster critical thinking, collaboration, and digital literacy. It provided students with a meaningful communicative purpose while allowing them to experience immersive technology in an educational context.</p>
+                </div>
+                <div class="text-info-box-centered">
+                    <h3>Critical reflection</h3>
+                    <p>When we first started planning the project, <strong>our initial idea was quite different.</strong> We had originally thought about designing an activity in which students would explore the 360° planets and describe the aliens living on them. The focus was going to be on using adjectives and descriptive language to talk about the aliens’ appearance, behaviour, and habitats, and then exchange those descriptions orally with their peers.
+
+However, as we <strong>discussed this idea in the group with our teacher</strong>, we realized that although it was imaginative, <strong>it lacked a strong communicative purpose and real-life relevance.</strong> Describing aliens might be fun, but it does not connect easily with situations that students might encounter in their daily lives or in realistic communicative contexts. Moreover, <strong>it did not provide a clear narrative or task outcome</strong> that would keep students <strong>motivated</strong> throughout the whole activity.
+
+After reflecting on this, we decided to do the activity around something that would still be creative but more authentic and meaningful. That is why we thought of the idea of <strong>conducting a mission to find a new planet for humans to live on</strong>. This shift gave the project <strong>a clearer goal and allowed us to include a report-writing element</strong>, which not only developed <strong>descriptive language</strong> but also introduced students to a <strong>real-world text type</strong>. Instead of describing imaginary creatures, students now had to describe elements such as food, weather, water, size, and living conditions, using language that <strong>can be transferred to real-life communication</strong>, for example when describing a city, a country, or even a person’s lifestyle.</p>
+                </div>
+                
+                <div class="image-container-entry2">
+                    <img src="IMG_2432.jpg" alt="Description of Image 1">
+                </div>
+                <div class="text-info-box-centered">
+                    <p>I think this change was one of the most successful decisions in our design process. The final activity had a strong narrative thread, clear linguistic goals, and a combination of skills that reflected authentic communication. The students’ task had purpose, coherence, and a sense of accomplishment.</p>
+                </div>
+                <div class="text-info-box-centered">
+                    <h3>What worked</h3>
+                    <p>After putting the activity into practice with our classmates, we were able to test the first part of the main task, where participants explored the planets on Thinglink and began completing the report worksheet. Even though we could not finish the whole task cycle, this classroom practice gave us valuable insights into how the activity worked in practice.
+
+One of the strongest aspects was the <strong>topic itself</strong>, which turned out to be very engaging. The idea of searching for a new planet combines imagination, adventure, and scientific curiosity, three elements that naturally capture students’ attention. Moreover, <strong>the use of Thinglink 360°</strong> significantly enhanced that engagement. The immersive environment allowed participants to explore each planet as if they were really there, clicking on hotspots to discover information and visual details. This level of interactivity created a sense of <strong>autonomy and exploration</strong>, transforming the lesson into an experience rather than a simple classroom task.</p>
+                </div>
+                <div class="image-grid-row">
+                    <div class="img-column-2"><img src="eca020bc-6927-4f0e-93da-9f745a7e1fad.JPG" alt="Image 3"></div>
+                    <div class="img-column-2"><img src="1a7ab685-63d8-4379-ba76-ab8b6f93aef7.JPG" alt="Image 4"></div>
+                </div>
+                <div class="text-info-box-centered">
+                    <p>Another major strength was <strong>the scaffolding</strong>. <strong>The report model, the checklist, the description scaffolding, the discussion scaffolding and the comparison and superlatives scaffolding</strong> helped participants understand the task and produce well-structured output. Our classmates commented that the scaffolding <strong>made the task accessible and well-organized</strong>, allowing them to focus on language use rather than worrying about what to do next.</p>
+                </div>
+                <div class="image-grid-row">
+                    <div class="img-column-2"><img src="IMG_2439.jpg" alt="Image 1"></div>
+                    <div class="img-column-2"><img src="IMG_2438.jpg" alt="Image 2"></div>
+                </div>
+                <div class="image-grid-row">
+                    <div class="img-column-2"><img src="IMG_2443.jpg" alt="Image 1"></div>
+                    <div class="img-column-2"><img src="IMG_2440.jpg" alt="Image 2"></div>
+                </div>
+                <div class="image-container-entry2">
+                    <img src="IMG_2444.jpg" alt="Description of Image 1">
+                </div>
+                <div class="text-info-box-centered">
+                    <h3>What did not work</h3>
+                    <p>Since we only completed the first part of the main task, we could not test the audio exchange or the final discussion. However, from what we observed and from the feedback received, I identified two aspects that could be improved.
+
+First, the <strong>oral scaffolding</strong> could be developed further, as we have not added it. While the written scaffolds worked very well, I think students <strong>might still struggle during the audio-recording phase</strong>, especially with pronunciation, and fluency. Without explicit oral support, some students may find it difficult to perform the speaking task confidently.
+
+Second, even though when we presented the activity to our classmates everything was clear and well understood, I thought that for younger learners (sixth graders) it might be a <strong>bit more confusing to follow all the steps of the main task</strong>. For that reason, I believe it would be useful to <strong>create short written or visual instructions indicating what to do at each stage</strong> (e.g., first explore, then complete the checklist, then write, then record). Perhaps the teacher’s explanations would already make everything clear, but having those step-by-step guidelines would ensure that students do not get lost during the task.</p>
+                </div>
+                <div class="text-info-box-centered">
+                    <h3>How I would improve it (and why)</h3>
+                    <p>Based on what I observed during the classroom practice and on our reflections afterward, I believe several improvements could make the project more accessible, smooth, and complete. First, <strong>adding oral scaffolding</strong> would support students during the audio phase; including short sample recordings or AI-generated pronunciation models could help them prepare with greater confidence and fluency. I would also provide <strong>step-by-step task instructions</strong> through a short guide outlining what students need to do at each stage of the main task. This would help younger learners stay focused and avoid confusion, even when the teacher is not intervening directly.
+
+Another important adjustment would be preparing a <strong>“Plan B”</strong> for moments of limited connectivity by designing printable versions of the planets, either through screenshots or brief text descriptions, so the activity can still run smoothly in case of internet or technical issues. Finally, although we already apply hetero-assessment and self-assessment, I believe <strong>adding a peer-assessment</strong> component during the audio phase would be beneficial. This would allow students to feel they are supporting one another while learning even more, and it would encourage them to reflect on pronunciation, clarity, and use of the target language, all while practicing active listening.</p>
+                </div>
+                <div class="text-info-box-centered">
+                    <h3>Link to my TPACK competences</h3>
+                    <p>This project has been an important step forward in the development of my <strong>TPACK competences</strong>. In my first reflections, I recognized that I was still building confidence with AR tools. Through this experience, I was finally <strong>able to apply such technology meaningfully, not just experiment with it</strong>.
+
+My <strong>Technological Knowledge (TK)</strong> expanded as I learned to design and navigate Thinglink 360°, customize interactive images, and anticipate potential classroom management challenges. My <strong>Pedagogical Knowledge (PK)</strong> was reinforced by aligning the use of technology with CEFR descriptors and task-based learning principles, ensuring that every digital element had a clear educational purpose. At the same time, my <strong>Content Knowledge (CK)</strong> was deepened as I reflected on how to balance creativity with language usefulness, from example, shifting from “describing aliens” to writing functional reports.
+
+Compared with my previous projects, this experience shows a clear evolution <strong>from being cautious with advanced technology to using it confidently and critically</strong>. I am now more aware that effective technology integration is not about making activities look innovative, but about <strong>using digital tools to create authentic, engaging, and linguistically purposeful experiences</strong>.
+
+I feel that I am developing into <strong>a more reflective teacher</strong> who can adapt technology to different contexts, design meaningful tasks, and scaffold students’ learning in multimodal environments. This project has <strong>strengthened my confidence</strong> and <strong>confirmed that immersive technologies</strong>, when used thoughtfully, <strong>can become powerful allies for language learning</strong>.</p>
+                </div>                                                                           
             </div>
         </section>
 
@@ -574,7 +691,11 @@ Through this experience, I developed a better understanding of how to adapt tech
 
     <footer class="footer">
         <div class="container">
-            <h4 class="espaciado">Laia Muset Domínguez     Universitat Autònoma de Barcelona     Technology Infused Language Teaching</h4>
+            <h4 class="espaciado">
+                <span>Laia Muset Domínguez</span>
+                <span>Universitat Autònoma de Barcelona</span>
+                <span>Technology Infused Language Teaching</span>
+            </h4>
         </div>
     </footer>
 
@@ -584,24 +705,37 @@ Through this experience, I developed a better understanding of how to adapt tech
             const sections = document.querySelectorAll('.content-section');
             const navLinks = document.querySelectorAll('.button-bar a');
 
+            // Función para mostrar la sección correcta al cargar la página o hacer clic
+            const showSection = (targetId) => {
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                const targetSection = document.querySelector(targetId);
+                const targetLink = document.querySelector(`.button-bar a[href="${targetId}"]`);
+
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+                if (targetLink) {
+                    targetLink.classList.add('active');
+                }
+            };
+            
             buttonBar.addEventListener('click', (e) => {
                 e.preventDefault();
-                const targetId = e.target.getAttribute('href');
-
+                // Asegura que solo el clic en un enlace (a) dentro de button-bar active la navegación
+                const targetId = e.target.closest('a')?.getAttribute('href'); 
                 if (targetId) {
-                    sections.forEach(section => {
-                        section.classList.remove('active');
-                    });
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    const targetSection = document.querySelector(targetId);
-                    if (targetSection) {
-                        targetSection.classList.add('active');
-                        e.target.classList.add('active');
-                    }
+                    showSection(targetId);
                 }
             });
+            
+            // Establecer la página de inicio (#home-page) como la sección activa por defecto.
+            showSection('#home-page');
         });
     </script>
 </body>
