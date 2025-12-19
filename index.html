@@ -99,12 +99,8 @@
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* --- Secciones de contenido --- */
@@ -118,13 +114,8 @@
             display: block;
         }
 
-        .content-section:nth-of-type(odd) {
-            background-color: var(--bg-color);
-        }
-
-        .content-section:nth-of-type(even) {
-            background-color: #e5e5e5;
-        }
+        .content-section:nth-of-type(odd) { background-color: var(--bg-color); }
+        .content-section:nth-of-type(even) { background-color: #e5e5e5; }
 
         .content-section h2 {
             font-size: 2rem;
@@ -132,7 +123,6 @@
             color: var(--primary-color);
         }
         
-        /* Justifica el texto de los párrafos */
         .content-section p {
             max-width: 800px;
             margin: 0 auto;
@@ -140,7 +130,7 @@
             white-space: pre-wrap; 
         }
         
-        /* --- Estilos para la sección de video y iframe (Homepage/Entry 1) --- */
+        /* --- Estilos para la sección de video y iframe --- */
         .video-section-content {
             display: flex;
             justify-content: center;
@@ -198,228 +188,73 @@
             text-align: justify;
         }
 
-        /* --- Media query para adaptar el diseño --- */
+        /* --- Estilo para el IFRAME de VR (Rectángulo centrado) --- */
+        .vr-frame-container {
+            max-width: 900px;
+            width: 90%;
+            height: 500px;
+            margin: 40px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background-color: #000;
+        }
+
+        .vr-frame-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         @media (max-width: 900px) {
-            .video-section-content {
-                flex-direction: column;
-                align-items: center;
-            }
-            .video-info-box,
-            .video-wrapper {
-                max-width: 100%;
-            }
-            /* Resetear tamaño de video grande en móviles */
-            #entry-3 .video-wrapper {
-                max-width: 100%;
-            }
-            #entry-3 .video-wrapper iframe {
-                height: 56.25vw; /* Mantiene la proporción 16:9 en móvil */
-                max-height: 400px;
-            }
+            .video-section-content { flex-direction: column; align-items: center; }
+            .video-info-box, .video-wrapper { max-width: 100%; }
+            #entry-3 .video-wrapper { max-width: 100%; }
+            #entry-3 .video-wrapper iframe { height: 56.25vw; max-height: 400px; }
+            .vr-frame-container { height: 350px; }
         }
 
-        /* **************************************************** */
-        /* --- ESTILO PARA HACER EL VIDEO DE ENTRY 3 GRANDE --- */
-        /* **************************************************** */
-        #entry-3 .video-section-content .video-wrapper {
-            max-width: 900px; /* Nuevo ancho máximo */
-            margin: 0 auto;
-        }
+        #entry-3 .video-section-content .video-wrapper { max-width: 900px; margin: 0 auto; }
+        #entry-3 .video-section-content .video-wrapper iframe { height: 506px; max-width: 900px; }
 
-        #entry-3 .video-section-content .video-wrapper iframe {
-            height: 506px; /* Altura para mantener la proporción 16:9 con 900px de ancho */
-            max-width: 900px; 
-        }
-        /* **************************************************** */
-        /* **************************************************** */
-
-
-        /* --- Estilos para recuadro de texto centrado (Entry 2) --- */
         .text-info-box-centered {
-            background-color: var(--card-bg); /* Fondo blanco */
+            background-color: var(--card-bg);
             padding: 30px;
             border-radius: 10px;
             box-shadow: var(--shadow);
             width: 100%;
-            max-width: 1200px; /* Suficientemente ancho para el texto */
-            margin: 40px auto; /* Centra el bloque horizontalmente y le da espacio */
-            text-align: left; /* Alinea el texto dentro del recuadro a la izquierda */
+            max-width: 1200px;
+            margin: 40px auto;
+            text-align: left;
         }
         
-        /* AUMENTO DE FUENTE PARA H3 DENTRO DEL RECUADRO CENTRADO */
-        .text-info-box-centered h3 {
-            font-size: 1.75rem; 
-            color: black; 
-            margin-top: 0; 
-            margin-bottom: 15px; 
-        }
+        .text-info-box-centered h3 { font-size: 1.75rem; color: black; margin-top: 0; margin-bottom: 15px; }
+        .text-info-box-centered p { max-width: 100%; margin: 10px 0; text-align: justify; }
 
-        /* Sobrescrive la alineación de texto para los párrafos dentro de este recuadro */
-        .text-info-box-centered p {
-            max-width: 100%; /* Permite que el párrafo use todo el ancho del recuadro */
-            margin: 10px 0;
-            text-align: justify; /* Mantiene la justificación */
-        }
-        /* --- FIN Estilos para recuadro de texto centrado --- */
+        .image-container-entry2 { display: flex; justify-content: center; margin: 40px auto; max-width: 500px; width: 90%; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); }
+        #entry-2 .image-container-entry2-large { display: flex; justify-content: center; margin: 40px auto; max-width: 650px; width: 90%; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); }
+        #entry-2 .image-container-entry2 img, #entry-2 .image-container-entry2-large img, .image-container-entry2 img { width: 100%; height: auto; display: block; margin: 0; }
 
-        /* --- Estilos para la imagen de Entry 2 (Individuales) --- */
-        .image-container-entry2 {
-            display: flex;
-            justify-content: center;
-            margin: 40px auto; 
-            max-width: 500px; 
-            width: 90%; 
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        #entry-2 .image-container-entry2-large {
-            display: flex;
-            justify-content: center;
-            margin: 40px auto; 
-            max-width: 650px; 
-            width: 90%; 
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        #entry-2 .image-container-entry2 img,
-        #entry-2 .image-container-entry2-large img,
-        .image-container-entry2 img { 
-            width: 100%; 
-            height: auto;
-            display: block;
-            margin: 0;
-        }
-        /* --- FIN Estilos para la imagen de Entry 2 (Individuales) --- */
-
-        /* --- Contenedor Flexbox para imagen y audio lado a lado (My reflective song) --- */
-        .media-flex-container {
-            display: flex;
-            flex-wrap: wrap; 
-            justify-content: center; 
-            align-items: center; 
-            gap: 30px; 
-            max-width: 900px; 
-            margin: 40px auto; 
-            padding: 20px;
-            background-color: var(--card-bg); 
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-
-        .media-flex-container .image-left {
-            flex: 1 1 300px; 
-            max-width: 400px; 
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .media-flex-container .image-left img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .media-flex-container .audio-right {
-            flex: 1 1 300px; 
-            max-width: 400px; 
-            display: flex;
-            flex-direction: column;
-            align-items: center; 
-        }
-
-        .media-flex-container .audio-right iframe {
-            display: block;
-            width: 100%;
-            height: 52px; 
-            border: none;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-        }
-
-        .media-flex-container .audio-right h4 {
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-color);
-            margin-top: 10px;
-        }
+        .media-flex-container { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 30px; max-width: 900px; margin: 40px auto; padding: 20px; background-color: var(--card-bg); border-radius: 10px; box-shadow: var(--shadow); }
+        .media-flex-container .image-left { flex: 1 1 300px; max-width: 400px; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+        .media-flex-container .image-left img { width: 100%; height: auto; display: block; }
+        .media-flex-container .audio-right { flex: 1 1 300px; max-width: 400px; display: flex; flex-direction: column; align-items: center; }
+        .media-flex-container .audio-right iframe { display: block; width: 100%; height: 52px; border: none; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+        .media-flex-container .audio-right h4 { text-align: center; font-size: 0.9rem; color: var(--text-color); margin-top: 10px; }
         
-        /* --- Estilos para la CUADRÍCULA (Pie de Entry 2) --- */
-        .image-grid-row {
-            display: flex;
-            justify-content: center; 
-            gap: 30px; 
-            max-width: 1200px; 
-            margin: 40px auto; 
-        }
-
-        .image-grid-row .img-column-2 {
-            width: calc(50% - 15px); 
-            max-width: 585px; 
-        }
-
-        .image-grid-row .img-column-1 {
-            width: 100%;
-            max-width: 650px; 
-        }
-
-        .image-grid-row img {
-            display: block;
-            width: 100%;
-            height: auto;
-            border-radius: 10px; 
-            box-shadow: var(--shadow);
-        }
-        /* --- FIN Estilos para la CUADRÍCULA --- */
+        .image-grid-row { display: flex; justify-content: center; gap: 30px; max-width: 1200px; margin: 40px auto; }
+        .image-grid-row .img-column-2 { width: calc(50% - 15px); max-width: 585px; }
+        .image-grid-row .img-column-1 { width: 100%; max-width: 650px; }
+        .image-grid-row img { display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: var(--shadow); }
         
-        .pdf-link {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            display: inline-block;
-        }
+        .pdf-link { margin-top: 20px; font-size: 1.2rem; font-weight: 600; color: var(--primary-color); text-decoration: none; transition: color 0.3s ease; display: inline-block; }
+        .pdf-link:hover { color: var(--secondary-color); }
 
-        .pdf-link:hover {
-            color: var(--secondary-color);
-        }
-
-        /* --- Pie de página --- */
-        .footer {
-            background-color: var(--text-color);
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 60px;
-        }
-
-        /* SOLUCIÓN AL PROBLEMA DE ESPACIADO: Uso de flexbox en lugar de white-space: pre; */
-        .espaciado {
-            display: flex; 
-            justify-content: space-around; 
-            text-align: center;
-            font-size: 0.85rem;
-            flex-wrap: wrap; 
-            gap: 10px; 
-        }
+        .footer { background-color: var(--text-color); color: #fff; text-align: center; padding: 20px 0; margin-top: 60px; }
+        .espaciado { display: flex; justify-content: space-around; text-align: center; font-size: 0.85rem; flex-wrap: wrap; gap: 10px; }
+        .espaciado span { padding: 0 5px; }
         
-        /* Estilos para los spans dentro del footer */
-        .espaciado span {
-            padding: 0 5px;
-        }
-        
-        @media (max-width: 600px) {
-            .espaciado {
-                justify-content: center;
-                flex-direction: column;
-            }
-        }
+        @media (max-width: 600px) { .espaciado { justify-content: center; flex-direction: column; } }
     </style>
 </head>
 <body>
@@ -431,7 +266,8 @@
                 <a href="#home-page" class="active">Home Page</a>
                 <a href="#entry-1">Entry 1</a>
                 <a href="#entry-2">Entry 2</a>
-                <a href="#entry-3">Entry 3</a> 
+                <a href="#entry-3">Entry 3</a>
+                <a href="#entry-4">Entry 4</a> 
             </div>
         </section>
 
@@ -471,7 +307,6 @@
         <section id="entry-2" class="content-section">
             <div class="container">
                 <h2>Entry 2: AI block reflection</h2>
-                
                 <div class="text-info-box-centered">
                     <h3>Context</h3>
                     <p>For this block, our group designed a language teaching activity that combined AI tools, <a href="https://copilot.microsoft.com/" target="_blank">Copilot</a> and <a href="https://app.suno.ai/" target="_blank">Suno</a>, to promote creativity, vocabulary learning, and collaboration. The activity follows a structured sequence that integrates language production with technology in a meaningful way.
@@ -576,10 +411,9 @@ Through this experience, I developed a better understanding of how to adapt tech
                             allow="autoplay"
                             frameborder="0"
                         ></iframe>
-
                     </div>
                 </div>
-                </div>
+            </div>
         </section>
 
         <section id="entry-3" class="content-section">
@@ -670,14 +504,21 @@ My <strong>Technological Knowledge (TK)</strong> expanded as I learned to design
 Compared with my previous projects, this experience shows a clear evolution <strong>from being cautious with advanced technology to using it confidently and critically</strong>. I am now more aware that effective technology integration is not about making activities look innovative, but about <strong>using digital tools to create authentic, engaging, and linguistically purposeful experiences</strong>.
 
 I feel that I am developing into <strong>a more reflective teacher</strong> who can adapt technology to different contexts, design meaningful tasks, and scaffold students’ learning in multimodal environments. This project has <strong>strengthened my confidence</strong> and <strong>confirmed that immersive technologies</strong>, when used thoughtfully, <strong>can become powerful allies for language learning</strong>.</p>
-                </div>                                                                           
+                </div> 
             </div>
         </section>
 
         <section id="entry-4" class="content-section">
             <div class="container">
-                <h2>Sección de Entry 4</h2>
-                <p>Contenido de la cuarta entrada. Recuerda que los estilos son totalmente personalizables.</p>
+                <h2>Entry 4: VR block reflection</h2>
+                <div class="text-info-box-centered">
+                    <h3>Why this format?</h3>
+                    <p>I chose to present this entry in <a href="https://learn.framevr.io/" target="_blank">VRFrame</a> because it allows me to further apply the knowledge and skills I have acquired during this course. In this way, I can present the reflection from within a virtual environment, which supports engagement and coherence with the activity design. Moreover, this format enables me to use the different resources the platform offers, such as text, audio, and images, to present my learning in a more meaningful way.</p>
+                </div>
+
+                <div class="vr-frame-container">
+                    <iframe name="entry4" src="https://framevr.io/entry4" allow="camera;microphone;display-capture;xr-spatial-tracking"></iframe>
+                </div>
             </div>
         </section>
 
@@ -705,7 +546,6 @@ I feel that I am developing into <strong>a more reflective teacher</strong> who 
             const sections = document.querySelectorAll('.content-section');
             const navLinks = document.querySelectorAll('.button-bar a');
 
-            // Función para mostrar la sección correcta al cargar la página o hacer clic
             const showSection = (targetId) => {
                 sections.forEach(section => {
                     section.classList.remove('active');
@@ -727,14 +567,13 @@ I feel that I am developing into <strong>a more reflective teacher</strong> who 
             
             buttonBar.addEventListener('click', (e) => {
                 e.preventDefault();
-                // Asegura que solo el clic en un enlace (a) dentro de button-bar active la navegación
                 const targetId = e.target.closest('a')?.getAttribute('href'); 
                 if (targetId) {
                     showSection(targetId);
+                    window.scrollTo(0, 0);
                 }
             });
             
-            // Establecer la página de inicio (#home-page) como la sección activa por defecto.
             showSection('#home-page');
         });
     </script>
